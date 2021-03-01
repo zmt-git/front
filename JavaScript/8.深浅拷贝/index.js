@@ -32,6 +32,7 @@ function cloneDeep (source, hash = new WeakMap()) {
   if (hash.has(source)) return hash.get(source)
 
   const targetObj = source.constructor === Array ? [] : {}
+  
   hash.set(source, targetObj)
 
   for (let key in source) {
