@@ -3,7 +3,7 @@ window.onload = function () {
     $('#isSupport').text('支持')
     console.log('支持')
   
-    navigator.serviceWorker.register('./index.js', { scope: './' })
+    navigator.serviceWorker.register('./sw-dome.js', { scope: './' })
       .then(registration => {
         $('#isSuccess').text('注册成功')
   
