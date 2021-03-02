@@ -4,10 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <script src="./index2.js"></script>
 </head>
 <body>
-  <div>
+  <div id="root">
+    <div class="">{{count}}</div>
+    <hr/>
+    <button id="btn">test</button>
   </div>
-  <script src="./index.js"></script>
 </body>
 </html>
+<script>
+  const data = {
+    count: 1
+  }
+  const btn = document.querySelector('#btn')
+  btn.addEventListener('click', () => {
+    data.count += 1
+  })
+window.onload = () => {
+  new Vue({
+    el: 'root',
+    data: data
+  })
+}
+</script>
