@@ -1,23 +1,24 @@
 class Vue {
-  constructor(opt) {
+  constructor (opt) {
     this._data = opt.data
-    this._option = opt
-    this._el = opt.el
-    this.observe(this._data)
-    const el = document.querySelector(`#${this._el}`)
-    this.compile(el)
+    this._options = opt
+    this.observe(opt.data)
+
+    this._el = document.querySelector(opt.el)
+
+
+    this.compile(this._el)
   }
 
   observe (data) {
     Object.keys(data).forEach(key => {
       let value = data[key]
-      const obs = new Observe()
+      const obs = new Observer()
       Object.defineProperty(data, key, {
         get () {
-          Observe.target && obs.addNode(Observe.target )
+          Observer.target && obs.addNode(Observer.target)
           return value
         },
-
         set (newVal) {
           obs.notify(newVal)
           value = newVal
@@ -27,21 +28,22 @@ class Vue {
   }
 
   compile (el) {
-    Array.from(el).forEach(child => {
+    [].forEach.call(el.childNodes,child => {
       if (!child.firstElementChild && /\{\{(.*)\}\}/.test(child.innerHTML)) {
-        let key = RegExp.$1.trim()
-        child.innerHTML = child.innerHTML.replace(new RegExp('\\{\\{\\s*' + key + '\\*s\\}\\}', 'gm'), this._data[key])
-        Observe.target = child
+        const key = RegExp.$1.trim()
+        child.innerHTML = child.innerHTML.replace(new RegExp('\\{\\{\\s*'+ key +'\\s*\\}\\}', 'gm'), this._options.data[key])
+        Observer.target = child
         this._data[key]
-        Observe.target = null
-      } else if (child.firstElement ) {
-        this.compile(child)
+        Observer.target = null
+      } else if (child.firstElementChild) {
+        compile(child)
       }
     })
   }
+
 }
 
-class Observe {
+class Observer {
   constructor () {
     this.nodes = []
   }
@@ -50,9 +52,9 @@ class Observe {
     this.nodes.push(node)
   }
 
-  notify (newVal) {
+  notify (val) {
     this.nodes.forEach(node => {
-      node.innerHTML = newVal
+      node.innerHTML = val
     })
   }
 }
