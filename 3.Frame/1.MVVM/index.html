@@ -7,44 +7,24 @@
   <script src="./index2.js"></script>
 </head>
 <body>
-<<<<<<< HEAD
-  <div id="root">
-    <div class="">{{count}}</div>
-    <hr/>
-    <button id="btn">test</button>
-=======
   <div id="app">
     <h3>{{count}}</h3>
     <button id="btn">测试</button>
->>>>>>> 37463fec2e26957abe31d928681cf39bea823fbe
   </div>
 </body>
 </html>
 <script>
-<<<<<<< HEAD
-  const data = {
-=======
   let data = {
->>>>>>> 37463fec2e26957abe31d928681cf39bea823fbe
     count: 1
   }
   const btn = document.querySelector('#btn')
   btn.addEventListener('click', () => {
     data.count += 1
   })
-<<<<<<< HEAD
-window.onload = () => {
-  new Vue({
-    el: 'root',
-    data: data
-  })
-}
-=======
   window.onload = () => {
     new Vue({
       data: data,
       el: '#app'
     })
   }
->>>>>>> 37463fec2e26957abe31d928681cf39bea823fbe
 </script>
