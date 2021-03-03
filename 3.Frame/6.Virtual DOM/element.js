@@ -11,7 +11,7 @@ function createElement (type, props, children) {
 }
 
 function render (virtualDom) {
-  const el = document.createElement(virtualDom.type)
+  let el = document.createElement(virtualDom.type)
 
   for(let key in virtualDom.props) {
     setAttr(el, key, virtualDom.props[key])
@@ -35,7 +35,7 @@ function setAttr (el, key, value) {
         el.setAttribute(key, value)
       }
       break;
-    case 'style': Node.style.cssText = value
+    case 'style': el.style.cssText = value
       break;
     default: el.setAttribute(key, value)
   }

@@ -51,7 +51,7 @@ function diffAttr (oldAttr, newAttr) {
 let num = 0
 function diffChildren (oldChildren, newChildren, patches) {
   oldChildren.forEach((child, index) => {
-    walk(child, newChildren[index], num++, patches)
+    walk(child, newChildren[index], ++num, patches)
   })
 }
 
