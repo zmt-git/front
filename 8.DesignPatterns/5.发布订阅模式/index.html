@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="./index.js"></script>
+  <div id="list"></div>
+  <button id="btn">test</button>
+  <button id="off">off</button>
+</body>
+</html>
+<script>
+  let num = 0
+
+  const event = new Event()
+
+  const divDom = document.querySelector('#list')
+
+  const btn = document.querySelector('#btn')
+
+  const off = document.querySelector('#off')
+
+  function changeInnerHTML (num) {
+    divDom.innerHTML = num
+  }
+
+  btn.onclick = () => {
+    event.emit('click', num++)
+    console.log(event)
+  }
+
+  off.onclick = () => {
+    event.off('click', changeInnerHTML)
+    console.log(event)
+  }
+
+  window.onload = () => {
+    event.on('click', changeInnerHTML)
+  }
+</script>
