@@ -1,0 +1,14 @@
+.test{
+  width: 200px;
+  height: 200px;
+  background-color: red;
+  transition: all .3s;
+}
+.test:active{
+  background-color: black;
+}
+
+.test2::selection{
+  background-color: red;
+  color: #fff;
+}
