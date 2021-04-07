@@ -36,3 +36,6 @@ function deepCopy (o, map = new WeakMap()) {
     return o
   }
 }
+
+
+console.log(+new Date())
