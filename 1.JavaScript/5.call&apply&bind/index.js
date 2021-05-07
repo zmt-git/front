@@ -1,3 +1,11 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Author: ZMT
+ * @Date: 2021-02-23 14:48:55
+ * @LastEditors: ZMT
+ * @LastEditTime: 2021-05-07 10:20:19
+ */
 // * call() 方法在使用一个指定的 this 值和若干个指定的参数值的前提下调用某个函数或方法。
 // ? 模拟call方法
 Function.prototype.call2 = function (context) {
@@ -9,7 +17,7 @@ Function.prototype.call2 = function (context) {
 
   const arg = [].slice.call(arguments, 1)
 
-  const result = context.fn(...arg)
+  const result = context[fn](...arg)
 
   delete context[fn]
 
