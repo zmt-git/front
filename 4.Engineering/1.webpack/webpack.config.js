@@ -1,3 +1,11 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Author: ZMT
+ * @Date: 2021-04-07 15:00:35
+ * @LastEditors: ZMT
+ * @LastEditTime: 2021-04-20 14:50:19
+ */
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')

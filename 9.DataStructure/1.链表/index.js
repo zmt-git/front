@@ -1,3 +1,11 @@
+/*
+ * @Description: 
+ * @Version: 2.0
+ * @Autor: ZMT
+ * @Date: 2021-03-15 11:56:24
+ * @LastEditors: ZMT
+ * @LastEditTime: 2021-04-13 14:51:34
+ */
 // 双向链表
 class Node {
   constructor(el) {
@@ -21,7 +29,6 @@ class LinkList {
 
     return current
   }
-
   insert (newElement, item) {
     const newNode = new Node(newElement)
 
