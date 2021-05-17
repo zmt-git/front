@@ -1,3 +1,11 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Author: ZMT
+ * @Date: 2021-03-02 09:14:31
+ * @LastEditors: ZMT
+ * @LastEditTime: 2021-05-10 13:50:52
+ */
 /***
  * ?网易
  * *（1）先拿设计稿竖着的横向分辨率除以100得到body元素的宽度
@@ -35,7 +43,7 @@
   * * 2.动态计算html的font-size
   * *  document.documentElement.style.fontSize = document.documentElement.clientWidth / 10 + 'px';
   *
-  * * 3.局的时候，各元素的css尺寸=设计稿标注尺寸/设计稿横向分辨率/10
+  * * 3. 布局的时候，各元素的css尺寸=设计稿标注尺寸/设计稿横向分辨率/10
   *
   * * 4.font-size可能需要额外的媒介查询，并且font-size不使用rem，这一点跟网易是一样的
   * 

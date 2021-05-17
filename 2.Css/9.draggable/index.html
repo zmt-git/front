@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    .box{
+      width: 200px;
+      height: 200px;
+      background-color: deeppink;
+    }
+  </style>
+  <script type="text/javascript">
+      function drag (ev) {
+        ev.dataTransfer.setData('text', ev.target.id)
+      }
+  
+      function allowDrop (e) {
+        e.preventDefault()
+      }
+  
+      function drop (ev) {
+        const data = ev.dataTransfer.getData('text')
+        ev.target.appendChild(document.querySelector(data))
+        e.preventDefault()
+  
+      }
+  </script>
+</head>
+<body>
+  <div id="div1" class="box" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+  <p id="p" draggable="true" ondragstart="drag(event)">this page is draggable</p>
+</body>
+</html>
+<script>
+  window.onload = () => {
+    const arr = [23,3,5,67,454,44]
+    for(i of arr) {
+      console.log(i);
+    }
+    let obj= {_a: 1, b: 2}
+    for(i of obj) {
+      console.log(i);
+    }
+  }
+</script>

@@ -4,10 +4,10 @@
  * @Author: ZMT
  * @Date: 2021-05-07 09:56:59
  * @LastEditors: ZMT
- * @LastEditTime: 2021-05-07 10:30:30
+ * @LastEditTime: 2021-05-11 09:35:34
  */
 // @ts-check
-Function.prototype.bind = function () {
+Function.prototype.bind = function (thisArg) {
   if (typeof this !== 'function') {
     throw new Error(this + 'must be a function')
   }
@@ -27,7 +27,7 @@ Function.prototype.bind = function () {
         Empty.prototype = self.prototype
         bound.prototype = new Empty()
       }
-      const result = self.apply(finalArgs)
+      const result = self.apply(this, finalArgs)
       const isObject = typeof result === 'object' && result !== null
       const isFunction = typeof result === 'function'
 
@@ -37,7 +37,7 @@ Function.prototype.bind = function () {
         return this
       }
     } else {
-      return self.apply(finalArgs)
+      return self.apply(thisArg, finalArgs)
     }
   }
 

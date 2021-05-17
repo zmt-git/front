@@ -1,3 +1,11 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Author: ZMT
+ * @Date: 2021-02-25 09:42:23
+ * @LastEditors: ZMT
+ * @LastEditTime: 2021-05-10 10:01:57
+ */
 // ? 浅拷贝
 
 // *浅拷贝就只是复制对象的引用，如果拷贝后的对象发生变化，原对象也会发生变化
@@ -37,11 +45,11 @@ function cloneDeep (source, hash = new WeakMap()) {
 
   for (let key in source) {
     if (source.hasOwnProperty(key)) {
-      if (source[key] && typeof source[keys] === 'object') {
-        targetObj[keys] = source.constructor === Array ? [] : {}
-        targetObj[keys] = cloneDeep(targetObj[keys] )
+      if (source[key] && typeof source[key] === 'object') {
+        targetObj[key] = source.constructor === Array ? [] : {}
+        targetObj[key] = cloneDeep(targetObj[key], hash)
       } else {
-        targetObj[key] = source[keys]
+        targetObj[key] = source[key]
       }
     }
   }

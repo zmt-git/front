@@ -143,7 +143,6 @@ Watcher.prototype.update = function () {
   this.fn(val)
 }
 
-
 function initComputed () {
   let vm = this
   let computed = this.$options.computed
@@ -154,5 +153,3 @@ function initComputed () {
     })
   })
 }
-
-
